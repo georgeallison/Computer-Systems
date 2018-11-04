@@ -1,0 +1,41 @@
+Formatting given number as IEEE floating point
+
+8- bit floating point X = 20.375
+
+subtract bias to go from actual exponent to IEEE
+
+(-1)^0 1.0100011 * 2^4
+
+exp = 1011 (unsigned value 11 = 4 + bias) where bias = +7
+frac = 101
+
+7 6 5 4 3 2 1 0
+0 1 0 1 1 0 1 0
+
+all zeroes for exponent =  denom case
+
+.010
+x2^4
+1011 = 11 --- subtract bias
+________________________________________________
+
+
+If we need to store up to 3 decimal places
+-5.1234 is stored as 5.123
+-5.1238 is stored as 5.124
+
+If number is exactly in between: 5.1235
+round-to-even - If 5.123 has an even bit pattern then round down, else if 5.124 has an even bit pattern then round up.
+
+Performance Lab:
+rotate and smooth
+
+Rotate: loop through 2 nested loops
+
+http://nadeausoftware.com/articles/2012/06/c_c_tip_how_loop_through_multi_dimensional_arrays_quickly
+
+having 2 arrays is heavy on mem
+
+Order of increasing speed, decreasing cost: Registers, L1, L2, RAM, HD
+
+
